@@ -1,5 +1,5 @@
-#https://www.acmicpc.net/problem/10989
-# 백준 10989, 수 정렬하기3
+#https://www.acmicpc.net/problem/2747
+# 백준 2747, 피보나치
 
 
 #테스트용 입력
@@ -11,21 +11,27 @@ file = open(os.path.join(os.path.dirname(__file__), 'data.txt'), 'r')
 #import sys
 #file = sys.stdin
 
-#파이썬 기본 라이브러리로는 타임아웃될거임.
-#수의 범위가 제한적인 계수 정렬 알고리즘(counting sort)
-#index 적중 시 값을 1씩 증가시킴
-
 
 n = int(file.readline().replace('\n',''))
-array = [0] * 10001
 
-for _ in range(n):
-    x = int(file.readline().replace('\n',''))
-    array[x] += 1
-    
+#재귀함수
+'''
+이거로 풀면 타임아웃된다.
+def fibonacci(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    return fibonacci(n-1) + fibonacci(n-2)
+'''
+
+a, b = 0, 1
+while n>0:
+    a, b = b, a+b
+    n -= 1
+print(a)
 
 
-for i in range(10001): 
-    if array[i] != 0:
-        for j in range(array[i]):
-            print(i)
+
+
+
